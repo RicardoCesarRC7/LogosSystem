@@ -10,7 +10,6 @@ namespace LogosSystem.Models.Pessoas.Alunos
     public class Aluno : Pessoa
     {
         public int AlunoID { get; set; }
-        public string Email { get; set; }
         public string Status { get; set; }
         public Igreja Igreja { get; set; }
         public List<CargoAluno> Cargos { get; set; }

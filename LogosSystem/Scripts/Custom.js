@@ -18,11 +18,15 @@ $(document).ready(function () {
     });
 
     $('#alunoLink').click(function () {
-        window.location.href = getMainUrl() + '/Home/Aluno';
+        window.location.href = getMainUrl() + '/Aluno';
     });
 
     $('#professorLink').click(function () {
-        window.location.href = getMainUrl() + '/Home/Professor';
+        window.location.href = getMainUrl() + '/Professor';
+    });
+
+    $('#cursosLink').click(function () {
+        window.location.href = getMainUrl() + '/Professor';
     });
 });
 

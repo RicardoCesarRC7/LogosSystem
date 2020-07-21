@@ -1,5 +1,5 @@
 ﻿using LogosSystem.Models.Instituicao.Curso;
-using LogosSystem.Models.Instituicao.Curso.Disciplina;
+using LogosSystem.Models.Instituicao.Curso.Disciplinas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
