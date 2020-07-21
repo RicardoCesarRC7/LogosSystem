@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "Logos System";
+    string helloUser = ViewBag.helloUser;
+}
+
+<div class="col-12" ng-controller="HomePageController as controller" ng-init="controller.init()">
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron bg-light">
+                <div class="text-center my-5">
+                    <h1 class="display-3">
+                        @helloUser, Ricardo! &#x1F603
+                    </h1>
+                    <hr />
+                    <p class="lead">Seja bem-vindo(a) ao sistema de administração do Seminário Batista Logos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div class="row">
+            <div class="col-12">
+                <div class="card my-5 shadow">
+                    <div class="card-header bg-danger text-light text-center">
+                        <h2>Agenda <i class="fa fa-clipboard-list"></i></h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-4 mt-sm-3 mt-3" ng-repeat="item in controller.agenda">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="mb-0  mr-2 float-left"><i class="fa fa-calendar-check"></i> {{item.Titulo}}</h4>
+                                            <div class="float-right">
+                                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Editar" style="color: black">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Apagar" style="color: black">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>{{item.Descricao}}</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <span class="mb-0 text-muted text-left">Criado há {{item.DataCriacao != null ? item.DataCriacao : '0 dias'}}</span>
+                                            <i class="float-right fa fa-plus-circle fa-lg" aria-hidden="true" ng-show="item.IsNovoLembrete" style="color: green"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white" style="padding: 20px">
+                        <div class="col-12">
+                            <button id="adicionarLembreteBotao" class="btn btn-outline-info float-right" data-toggle="modal" data-target="#modalAdicionarLembrete">Novo <i class="fa fa-plus"></i></button>
+                            <button id="salvarAgenda" class="btn btn-success float-right mr-2" ng-if="controller.agenda.length > controller.lastLengthAgenda" ng-click="controller.salvarAgenda()">Salvar alterações <i class="fa fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 d-flex align-items-center">
+                        <h1 class="display-3 col text-center" style="">Alunos</h1>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="aluno in controller.alunos">
+                                <tr>
+                                    <td>{{aluno.Nome}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr />
+                <div class="row mt-5">
+                    <div class="col-lg-6 col-sm-12 d-flex align-items-center">
+                        <h1 class="display-3 col text-center" style="">Professores</h1>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="professor in controller.professores">
+                                <tr>
+                                    <td>{{professor.Nome}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr />
+                <div class="row mt-5">
+                    <div class="col-lg-6 col-sm-12 d-flex align-items-center">
+                        <h1 class="display-3 col text-center" style="">Diretoria</h1>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="diretor in controller.diretores">
+                                <tr>
+                                    <td>{{diretor.Nome}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--modal-->
+    <div id="modalAdicionarLembrete" class="modal fade">
+        <div class="modal-dialog modal-md" style="margin-top: 150px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Adicionar lembrete</h2>
+                    <button class="close" data-dismiss="modal" aria-label="fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formLembrete">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group col-12">
+                                    <label class="control-label">Título</label>
+                                    <input type="text" class="form-control col-12" id="tituloLembrete" ng-model="Lembrete.Titulo" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group col-12">
+                                    <label class="control-label">Descrição</label>
+                                    <textarea class="form-control col-12" ng-model="Lembrete.Descricao"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" ng-click="controller.adicionarLembrete(Lembrete)">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scriptsSection {
+    <script src="~/Scripts/App/home-page/home-page.controller.js"></script>
+}

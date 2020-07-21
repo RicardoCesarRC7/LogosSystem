@@ -1,0 +1,57 @@
+﻿<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+    <a id="logoHomeLink" class="navbar-brand ml-3" href="">
+        <img src="~/Content/Images/Logos-160-new.png" width="40" class="bg-light d-inline-block align-top" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navInicio" aria-controls="navInicio" aria-expanded="false" aria-label="Navegação Toggle">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ml-3" id="navInicio">
+        <form class="form-inline mt-lg-0 mt-2 mr-lg-3">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="Pesquisar" style="width:500px" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a id="alunoLink" href="" class="nav-link">Alunos</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" id="professoresDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Professores</a>
+                <div class="dropdown-menu" aria-labelledby="professoresDrop">
+                    <a href="#" id="professorLink" class="dropdown-item">Gerenciar Professores</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" id="cursosDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+                <div class="dropdown-menu" aria-labelledby="cursosDrop">
+                    <a href="#" class="dropdown-item">Teologia Ministerial</a>
+                    <a href="#" class="dropdown-item">Master of Ministry</a>
+                    <a href="#" class="dropdown-item">Música</a>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-item dropdown d-lg-none d-xl-none">
+            <a href="" class="nav-link" id="userDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="~/Content/Images/user2.png" width="30" class="bg-light d-inline-block" />
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDrop">
+                <a href="#" class="dropdown-item"><img src="~/Content/Images/user2.png" width="20" class="mr-3" />Perfil</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Sair</a>
+            </div>
+        </div>
+    </div>
+    <div class="nav-item dropdown d-none d-lg-block">
+        <a href="" class="nav-link" id="userDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="~/Content/Images/user.png" width="30" class="bg-light d-inline-block" />
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDrop">
+            <a href="#" class="dropdown-item"><img src="~/Content/Images/user2.png" width="20" class="mr-3" />Perfil</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">Sair</a>
+        </div>
+    </div>
+</nav>

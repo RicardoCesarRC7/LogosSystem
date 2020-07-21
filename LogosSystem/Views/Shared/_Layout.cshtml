@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="logosSystemApp" lang="pt-br">
+<head class="bg-light">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Logos System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Bundles/MainAngularModule")
+</head>
+<body>
+
+    @Html.Partial("_Navegacao")
+
+    <div class="container shadow" style="background-color:white">
+        @RenderBody()
+    </div>
+
+    <footer class="footer fixed-bottom text-center text-light bg-dark">
+        <p style="margin-top: 15px">&copy; @DateTime.Now.Year - Seminário Batista Logos</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/matchHeight")
+    @Scripts.Render("~/Scripts/Custom.js")
+    @RenderSection("scripts", required: false)
+    @RenderSection("scriptsSection", false)
+</body>
+</html>

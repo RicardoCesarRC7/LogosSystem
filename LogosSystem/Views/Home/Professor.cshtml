@@ -1,0 +1,211 @@
+﻿@{
+    ViewBag.Title = "Logos - Professores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12" ng-controller="ProfessorPageController as controller" ng-init="controller.init()">
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron bg-light">
+                <div class="col-12">
+                    <h1 class="display-3 text-center">Professores</h1>
+                    <hr />
+                    <p class="lead text-muted text-center">Adicione, atualize e exclua dados dos Professores</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-info">Novo <i class="fa fa-plus"></i></button>
+            <button class="btn btn-danger" id="buscaDetalhada">Busca detalhada <i class="fa fa-search"></i></button>
+            <form class="form-inline float-right">
+                <div class="input-group">
+                    <input ng-model="nomeBuscaProfessor" class="form-control" type="text" placeholder="Digite o nome do professor..." aria-label="Pesquisar professor" style="width:500px" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-12 card mt-3" id="formBuscaDetalhada" style="display: none">
+        <div>
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Nome:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Idade:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Igreja:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Pastor:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Celular:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Nacionalidade:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    CEP:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Cidade:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Bairro:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Endereço:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Profissão:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    RG:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    UF:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    CPF:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    E-MAIL:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="float-left col-3">
+                <label class=" control-label mt-2">
+                    Data de nascimento:
+                </label>
+                <div class="col-8 form-group" style="padding-left:0;">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 text-right mb-3 mr-3">
+            <button class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+    <div class="col-12 my-3 p-0">
+        <table class="table">
+            <tr>
+                <th>Nome</th>
+                <th>Igreja</th>
+                <th>Idade</th>
+                <th>Ações</th>
+            </tr>
+            <tr ng-repeat="contato in getProfessores() | filter: { Nome: nomeBuscaProfessor }">
+                <td>{{contato.Nome}}</td>
+                <td>{{contato.Igreja}}</td>
+                <td>{{contato.Idade}}</td>
+                <td style="width: 150px">
+                    <a href="" class="btn btn-sm btn-info"><i class="fa fa-align-justify"></i></a>
+                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-pencil-alt"></i></a>
+                    <a href="" class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div></div>
+
+@section scriptsSection {
+    <script src="~/Scripts/App/professor-page/professor-page.controller.js"></script>
+    <script src="~/Scripts/Application/professor.js"></script>
+}

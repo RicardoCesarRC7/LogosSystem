@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogosSystem", "LogosSystem\LogosSystem.csproj", "{0083DF5A-FB3E-4BAA-BEE5-016BC9D3F3BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogosSystem.Tests", "LogosSystem.Tests\LogosSystem.Tests.csproj", "{FA9B28FE-23E6-459C-9F8A-ED88E4EA209D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0083DF5A-FB3E-4BAA-BEE5-016BC9D3F3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0083DF5A-FB3E-4BAA-BEE5-016BC9D3F3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0083DF5A-FB3E-4BAA-BEE5-016BC9D3F3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0083DF5A-FB3E-4BAA-BEE5-016BC9D3F3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9B28FE-23E6-459C-9F8A-ED88E4EA209D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9B28FE-23E6-459C-9F8A-ED88E4EA209D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9B28FE-23E6-459C-9F8A-ED88E4EA209D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9B28FE-23E6-459C-9F8A-ED88E4EA209D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91A7B59A-68D3-4F7C-80F8-D993B947D421}
+	EndGlobalSection
+EndGlobal
