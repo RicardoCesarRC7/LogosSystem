@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LogosSystem.Models.Pessoas.Alunos
 {
-    public class Cargo
+    public class CargoAluno
     {
         public int CargoID { get; set; }
         public string Nome { get; set; }

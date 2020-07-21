@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LogosSystem.Models.Instituicao.Curso.Disciplina
+namespace LogosSystem.Models.Instituicao.Curso.Disciplinas
 {
     public class Disciplina
     {
@@ -14,5 +14,6 @@ namespace LogosSystem.Models.Instituicao.Curso.Disciplina
         public string Decricao { get; set; }
         public Professor Professor { get; set; }
         public List<Aluno> Alunos { get; set; }
+        public int CursoID { get; set; }
     }
 }

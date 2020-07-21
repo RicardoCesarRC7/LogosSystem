@@ -1,5 +1,6 @@
 ﻿using LogosSystem.Models.Pessoas.Alunos;
 using LogosSystem.Models.Pessoas.Professores;
+using LogosSystem.Models.Instituicao.Curso.Disciplinas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace LogosSystem.Models.Instituicao.Curso
         public string Decricao { get; set; }
         public List<Aluno> Alunos { get; set; }
         public List<Professor> Professores { get; set; }
+        public List<Disciplina> Disciplinas { get; set; }
     }
 }
