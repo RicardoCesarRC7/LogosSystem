@@ -274,6 +274,7 @@
     <Content Include="Models\Repository\Database\LogosSystemContext.edmx.diagram">
       <DependentUpon>LogosSystemContext.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\App\cursos-page\cursos-page.controller.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
