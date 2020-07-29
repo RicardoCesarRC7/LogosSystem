@@ -25,8 +25,12 @@ $(document).ready(function () {
         window.location.href = getMainUrl() + '/Professor';
     });
 
-    $('#cursosLink').click(function () {
-        window.location.href = getMainUrl() + '/Professor';
+    $('#cursosDrop').click(function () {
+        window.location.href = getMainUrl() + '/Cursos';
+    });
+
+    $('.carousel').carousel({
+        interval: 100
     });
 });
 

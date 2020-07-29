@@ -3,6 +3,63 @@
     ViewBag.Title = "Cursos";
 }
 
-<h1>Cursos</h1>
+<!--Carrossel Cursos-->
+<div id="carouselCursos" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselCursos" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselCursos" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="img-fluid w-100 d-block" src="~/Content/Images/Logos_20-_20Biblioteca.png" />
+            <div class="carousel-caption">
+                <h1>Teologia Ministerial</h1>
+                <p>O curso de Teologia Ministerial tem o objetivo de preparar líderes para a igreja local.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="img-fluid w-100 d-block" src="~/Content/Images/Logos_20-_20Biblioteca.png" />
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Música Sacra</h1>
+                <p>O curso de música tem o objetivo de preparar líderes na área de música para a igreja local.</p>
+            </div>
+        </div>
+    </div>
+    <a href="#carouselCursos" class="carousel-control-prev" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Voltar</span>
+    </a>
+    <a href="#carouselCursos" class="carousel-control-next" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Avançar</span>
+    </a>
+</div>
+<div class="col-12" ng-controller="CursosPageController as controller" ng-init="controller.init()">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-3 text-center mt-5">Cursos atuais</h1>
+            <div class="col-12 my-3 p-0">
+                <table class="table">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Ações</th>
+                    </tr>
+                    <tr ng-repeat="curso in controller.cursos">
+                        <td>{{curso.Nome}}</td>
+                        <td style="width: 150px">
+                            <a href="" class="btn btn-sm btn-info"><i class="fa fa-align-justify"></i></a>
+                            <a href="" class="btn btn-sm btn-danger"><i class="fa fa-pencil-alt"></i></a>
+                            <a href="" class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
+        </div>
+    </div>
 
+</div>
+
+@section scriptsSection {
+    <script src="~/Scripts/App/cursos-page/cursos-page.controller.js"></script>
+}

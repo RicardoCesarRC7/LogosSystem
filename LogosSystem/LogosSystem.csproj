@@ -208,7 +208,9 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\biblia-background-2-igreja-presbiteriana-divinopolis.jpg" />
     <Content Include="Content\Images\Logos-160-new.png" />
+    <Content Include="Content\Images\Logos_20-_20Biblioteca.png" />
     <Content Include="Content\Images\user.png" />
     <Content Include="Content\Images\user2.png" />
     <Content Include="Content\libs\font-awesome\all.min.css" />
