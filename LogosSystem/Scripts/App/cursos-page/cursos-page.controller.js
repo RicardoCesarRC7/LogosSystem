@@ -7,9 +7,12 @@ function CursosPageController($scope) {
 	var self = this;
 
 	self.cursos = [
-        { Nome: 'Ricardo Pereira', Igreja: 'Igreja Batista Esperança em Tatuapé', Idade: 22 },
-        { Nome: 'Joao Henrique', Igreja: 'Igreja Pentecostal', Idade: 22 },
-        { Nome: 'Maria Clara', Igreja: 'Igreja Batista Betel', Idade: 22 }
+        { Id: 1, Nome: 'Teologia Ministerial'},
+        { Id: 2, Nome: 'Educação Cristã'},
+        { Id: 3, Nome: 'Música Sacra'},
+        { Id: 4, Nome: 'Master of Ministry'},
+        { Id: 5, Nome: 'Pós-graduação em Exposição Bíblica'},
+        { Id: 6, Nome: 'Pós-Graduação em Aconselhamento Bíblico'}
 	];
 
 	self.getCursos = function () {
