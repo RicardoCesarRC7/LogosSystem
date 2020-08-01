@@ -53,7 +53,8 @@ function CursosPageController($scope) {
                         PrimeiroNome: 'Alessandro',
                         SegundoNome: 'Santos',
                     }
-                ]
+                ],
+                IsActive: true
             },
             {
                 Id: 2,
@@ -83,7 +84,8 @@ function CursosPageController($scope) {
                         PrimeiroNome: 'Alessandro',
                         SegundoNome: 'Santos',
                     }
-                ]
+                ],
+                IsActive: true
             },
             {
                 Id: 3,
@@ -122,7 +124,8 @@ function CursosPageController($scope) {
                         SegundoNome: 'Santos',
                         IsAvulso: true
                     }
-                ]
+                ],
+                IsActive: false
             }
         ];
     }

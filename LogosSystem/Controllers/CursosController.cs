@@ -13,5 +13,10 @@ namespace LogosSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult Curso()
+        {
+            return View();
+        }
     }
 }

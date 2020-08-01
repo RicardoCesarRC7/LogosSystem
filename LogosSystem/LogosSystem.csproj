@@ -245,6 +245,7 @@
     <Content Include="Scripts\Application\aluno.js" />
     <Content Include="Scripts\App\aluno-page\aluno-page.controller.js" />
     <Content Include="Scripts\App\app.module.js" />
+    <Content Include="Scripts\App\curso-page\curso-page.controller.js" />
     <Content Include="Scripts\App\home-page\home-page.controller.js" />
     <Content Include="Scripts\App\login-page\login-page.controller.js" />
     <Content Include="Scripts\App\professor-page\professor-page.controller.js" />
