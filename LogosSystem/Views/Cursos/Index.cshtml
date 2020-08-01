@@ -131,12 +131,23 @@
         </div>
         <div class="col-12 mb-5 mt-5">
             <div class="card shadow mr-2 ml-2">
-                <div class="card-header">
-                    <h1 class="text-center">Turmas</h1>
+                <div class="card-header bg-danger">
+                    <h1 class="text-center" style="color: white">Turmas</h1>
                 </div>
                 <div class="card-body">
-                    <div class="row col-12">
-                        <div class="col-3" ng-repeat="turma in controller.turmas">
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <label class="control-label mr-2">Filtro: </label>
+                            <select class="form-control float-right" ng-model="controller.filtroTurmas">
+                                <option value="" selected>Selecione</option>
+                                <option value="02/02/2020">02/02/2020</option>
+                                <option value="03/04/2020">03/04/2020</option>
+                                <option value="04/02/2020">04/02/2020</option>
+                                <option value="02/05/2020">02/05/2020</option>
+                            </select>
+                            <hr />
+                        </div>
+                        <div class="col-3" ng-repeat="turma in controller.turmas | filter: { DataInicio: controller.filtroTurmas }">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Curso: {{turma.NomeCurso}}</h5>
@@ -144,16 +155,16 @@
                                 <div class="card-body">
                                     <div><b>Início:</b> {{turma.DataInicio}}</div>
                                     <div><b>Período:</b> {{turma.Periodo}}</div>
-                                    
-                                    <hr />
 
+                                    <hr />
+                                    <!--Disciplinas-->
                                     <div><a href="#turmaDisciplinas-{{turma.Id}}" class="btn btn-default p-0" data-toggle="collapse" aria-expanded="false" aria-controls="turmaDisciplinas-{{turma.Id}}"> <b>Disciplinas: ({{turma.Disciplinas.length}})</b></a><a href="#turmaDisciplinas-{{turma.Id}}" class="btn btn-default p-0 float-right" data-toggle="collapse" aria-expanded="false" aria-controls="turmaDisciplinas-{{turma.Id}}"><i class="fa fa-chevron-down"></i></a></div>
                                     <div id="turmaDisciplinas-{{turma.Id}}" class="collapse">
                                         <div class="col-12 p-0" ng-repeat="disciplina in turma.Disciplinas">
                                             <p>{{disciplina.Nome}}</p>
                                         </div>
                                     </div>
-
+                                    <!--Alunos-->
                                     <div><a href="#turmaAlunos-{{turma.Id}}" class="btn btn-default p-0" data-toggle="collapse" aria-expanded="false" aria-controls="turmaAlunos-{{turma.Id}}"> <b>Alunos: ({{turma.Alunos.length}})</b></a><a href="#turmaAlunos-{{turma.Id}}" class="btn btn-default p-0 float-right" data-toggle="collapse" aria-expanded="false" aria-controls="turmaAlunos-{{turma.Id}}"><i class="fa fa-chevron-down"></i></a></div>
                                     <div id="turmaAlunos-{{turma.Id}}" class="collapse">
                                         <div class="col-12 p-0" ng-repeat="aluno in turma.Alunos">

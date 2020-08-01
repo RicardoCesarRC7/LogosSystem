@@ -8,6 +8,7 @@ function CursosPageController($scope) {
 
     self.cursos = [];
     self.turmas = [];
+    self.filtroTurmas = '';
 
     self.getCursos = function () {
 
@@ -28,6 +29,7 @@ function CursosPageController($scope) {
                 Id: 1,
                 CursoId: 1,
                 NomeCurso: 'Teologia Ministerial',
+                DataInicio: '05/02/2020',
                 Disciplinas: [
                     { DisciplinaId: 1, Nome: 'Teologia Sistemática', Professor: 'Wagner Amaral', TemProfessores: false, Alunos: []},
                     { DisciplinaId: 2, Nome: 'Aconselhamento', Professor: 'Carlos Bacoccina', TemProfessores: false, Alunos: []},
@@ -57,6 +59,7 @@ function CursosPageController($scope) {
                 Id: 2,
                 CursoId: 2,
                 NomeCurso: 'Música Sacra',
+                DataInicio: '10/02/2020',
                 Disciplinas: [
                     { DisciplinaId: 1, Nome: 'Teologia Sistemática', Professor: 'Wagner Amaral', TemProfessores: false, Alunos: [] },
                     { DisciplinaId: 2, Nome: 'Aconselhamento', Professor: 'Carlos Bacoccina', TemProfessores: false, Alunos: [] },
