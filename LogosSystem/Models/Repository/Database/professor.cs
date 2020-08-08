@@ -15,21 +15,10 @@ namespace LogosSystem.Models.Repository.Database
 using System;
     using System.Collections.Generic;
     
-public partial class aluno
+public partial class professor
 {
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public aluno()
-    {
-
-        this.falta = new HashSet<falta>();
-
-        this.nota = new HashSet<nota>();
-
-    }
-
-
-    public int Aluno_ID { get; set; }
+    public int Professor_ID { get; set; }
 
     public string Primeiro_Nome { get; set; }
 
@@ -50,14 +39,6 @@ public partial class aluno
     public string CPF { get; set; }
 
     public int Nacao_ID { get; set; }
-
-    public string Testemunho { get; set; }
-
-    public string Cargos { get; set; }
-
-    public string Igreja_Membro_Ha_Dez_Anos { get; set; }
-
-    public Nullable<System.DateTime> Data_Batismo { get; set; }
 
     public string CidadeNascimento { get; set; }
 
@@ -83,14 +64,6 @@ public partial class aluno
 
     public string Conjuge_Nome { get; set; }
 
-    public bool Is_Ativo { get; set; }
-
-    public bool Leciona_EBD { get; set; }
-
-    public bool Dirige_Culto { get; set; }
-
-    public bool Prega { get; set; }
-
     public Nullable<bool> Has_Tabaco { get; set; }
 
     public Nullable<bool> Has_Toxicos { get; set; }
@@ -105,17 +78,13 @@ public partial class aluno
 
     public string Outros_Cursos { get; set; }
 
+    public string Formacao_Descricao { get; set; }
+
+    public bool Is_Ativo { get; set; }
+
 
 
     public virtual nacao nacao { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<falta> falta { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<nota> nota { get; set; }
 
 }
 

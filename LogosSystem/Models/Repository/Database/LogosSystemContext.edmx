@@ -4,38 +4,891 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="logossystemModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="logossystemModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="aluno">
           <Key>
             <PropertyRef Name="Aluno_ID" />
           </Key>
           <Property Name="Aluno_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PrimeiroNome" Type="varchar" MaxLength="150" />
-          <Property Name="SegundoNome" Type="varchar" MaxLength="150" />
-          <Property Name="Igreja" Type="varchar" MaxLength="500" />
-          <Property Name="Idade" Type="int" />
+          <Property Name="Primeiro_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_Nascimento" Type="date" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Area_Ensino" Type="int" />
+          <Property Name="Telefone" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" />
+          <Property Name="RG" Type="varchar" MaxLength="20" />
+          <Property Name="CPF" Type="varchar" MaxLength="25" />
+          <Property Name="Nacao_ID" Type="int" Nullable="false" />
+          <Property Name="Testemunho" Type="text" />
+          <Property Name="Cargos" Type="varchar" MaxLength="500" />
+          <Property Name="Igreja_Membro_Ha_Dez_Anos" Type="varchar" MaxLength="100" />
+          <Property Name="Data_Batismo" Type="date" />
+          <Property Name="CidadeNascimento" Type="varchar" MaxLength="30" />
+          <Property Name="Idade" Type="int" Nullable="false" />
+          <Property Name="Sexo" Type="int" Nullable="false" />
+          <Property Name="Pai_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Mae_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="EnderecoComercial" Type="varchar" MaxLength="500" />
+          <Property Name="TelefoneComercial" Type="varchar" MaxLength="30" />
+          <Property Name="Profissao" Type="varchar" MaxLength="30" />
+          <Property Name="Estado_Civil" Type="int" />
+          <Property Name="Estado_Civil_Antigo" Type="int" />
+          <Property Name="Filhos_Qtt" Type="int" />
+          <Property Name="Conjuge_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Is_Ativo" Type="bool" Nullable="false" />
+          <Property Name="Leciona_EBD" Type="bool" Nullable="false" />
+          <Property Name="Dirige_Culto" Type="bool" Nullable="false" />
+          <Property Name="Prega" Type="bool" Nullable="false" />
+          <Property Name="Has_Tabaco" Type="bool" />
+          <Property Name="Has_Toxicos" Type="bool" />
+          <Property Name="Is_Sociedade_Secreta" Type="bool" />
+          <Property Name="Has_Ensino_Fundamental" Type="bool" />
+          <Property Name="Has_Ensino_Medio" Type="bool" />
+          <Property Name="Has_Ensino_Superior" Type="bool" />
+          <Property Name="Outros_Cursos" Type="varchar" MaxLength="5000" />
         </EntityType>
+        <EntityType Name="aluno_cursos">
+          <Key>
+            <PropertyRef Name="Aluno_ID" />
+            <PropertyRef Name="Curso_ID" />
+          </Key>
+          <Property Name="Aluno_ID" Type="int" Nullable="false" />
+          <Property Name="Curso_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="curso">
+          <Key>
+            <PropertyRef Name="Curso_ID" />
+          </Key>
+          <Property Name="Curso_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Duracao_Semestres" Type="int" />
+          <Property Name="Publico_Alvo" Type="int" />
+          <Property Name="Descricao" Type="varchar" MaxLength="5000" />
+          <Property Name="Is_Ativo" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="diretor">
+          <Key>
+            <PropertyRef Name="Diretor_ID" />
+          </Key>
+          <Property Name="Diretor_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Primeiro_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_Nascimento" Type="date" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" />
+          <Property Name="RG" Type="varchar" MaxLength="20" />
+          <Property Name="CPF" Type="varchar" MaxLength="25" />
+          <Property Name="Nacao_ID" Type="int" Nullable="false" />
+          <Property Name="Posicao" Type="int" Nullable="false" />
+          <Property Name="Formacao_Descricao" Type="varchar" MaxLength="3000" />
+          <Property Name="CidadeNascimento" Type="varchar" MaxLength="30" />
+          <Property Name="Idade" Type="int" Nullable="false" />
+          <Property Name="Sexo" Type="int" Nullable="false" />
+          <Property Name="Pai_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Mae_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="EnderecoComercial" Type="varchar" MaxLength="500" />
+          <Property Name="TelefoneComercial" Type="varchar" MaxLength="30" />
+          <Property Name="Profissao" Type="varchar" MaxLength="30" />
+          <Property Name="Estado_Civil" Type="int" />
+          <Property Name="Filhos_Qtt" Type="int" />
+          <Property Name="Conjuge_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Is_Professor" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="disciplina">
+          <Key>
+            <PropertyRef Name="Disciplina_ID" />
+          </Key>
+          <Property Name="Disciplina_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="5000" />
+          <Property Name="Creditos_Qtt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="falta">
+          <Key>
+            <PropertyRef Name="Falta_ID" />
+          </Key>
+          <Property Name="Falta_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+          <Property Name="Aluno_ID" Type="int" Nullable="false" />
+          <Property Name="Disciplina_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="igreja">
+          <Key>
+            <PropertyRef Name="Igreja_ID" />
+          </Key>
+          <Property Name="Igreja_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Denominacao" Type="int" Nullable="false" />
+          <Property Name="Localizacao_ID" Type="int" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="instituicao">
+          <Key>
+            <PropertyRef Name="Instituicao_ID" />
+          </Key>
+          <Property Name="Instituicao_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Data_Fundacao" Type="date" Nullable="false" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fundador" Type="varchar" MaxLength="500" />
+          <Property Name="Descricao" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="localizacao">
+          <Key>
+            <PropertyRef Name="Localizacao_ID" />
+          </Key>
+          <Property Name="Localizacao_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Endereco_Complemento" Type="varchar" MaxLength="500" />
+          <Property Name="Bairro" Type="varchar" MaxLength="30" />
+          <Property Name="Cidade" Type="varchar" MaxLength="30" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="CEP" Type="varchar" MaxLength="10" />
+          <Property Name="Pais_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nacao">
+          <Key>
+            <PropertyRef Name="Nacao_ID" />
+          </Key>
+          <Property Name="Nacao_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nota">
+          <Key>
+            <PropertyRef Name="Nota_ID" />
+          </Key>
+          <Property Name="Nota_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="2" Scale="2" Nullable="false" />
+          <Property Name="Aluno_ID" Type="int" Nullable="false" />
+          <Property Name="Disciplina_ID" Type="int" Nullable="false" />
+          <Property Name="Curso_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pastor">
+          <Key>
+            <PropertyRef Name="Pastor_ID" />
+          </Key>
+          <Property Name="Pastor_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Primeiro_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_Nascimento" Type="date" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" />
+          <Property Name="RG" Type="varchar" MaxLength="20" />
+          <Property Name="CPF" Type="varchar" MaxLength="25" />
+          <Property Name="Nacao_ID" Type="int" Nullable="false" />
+          <Property Name="Idade" Type="int" Nullable="false" />
+          <Property Name="Sexo" Type="int" Nullable="false" />
+          <Property Name="Estado_Civil" Type="int" />
+          <Property Name="Conjuge_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Igreja_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="professor">
+          <Key>
+            <PropertyRef Name="Professor_ID" />
+          </Key>
+          <Property Name="Professor_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Primeiro_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_Nascimento" Type="date" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Area_Ensino" Type="int" />
+          <Property Name="Telefone" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" />
+          <Property Name="RG" Type="varchar" MaxLength="20" />
+          <Property Name="CPF" Type="varchar" MaxLength="25" />
+          <Property Name="Nacao_ID" Type="int" Nullable="false" />
+          <Property Name="CidadeNascimento" Type="varchar" MaxLength="30" />
+          <Property Name="Idade" Type="int" Nullable="false" />
+          <Property Name="Sexo" Type="int" Nullable="false" />
+          <Property Name="Pai_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Mae_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="EnderecoComercial" Type="varchar" MaxLength="500" />
+          <Property Name="TelefoneComercial" Type="varchar" MaxLength="30" />
+          <Property Name="Profissao" Type="varchar" MaxLength="30" />
+          <Property Name="Estado_Civil" Type="int" />
+          <Property Name="Estado_Civil_Antigo" Type="int" />
+          <Property Name="Filhos_Qtt" Type="int" />
+          <Property Name="Conjuge_Nome" Type="varchar" MaxLength="300" />
+          <Property Name="Has_Tabaco" Type="bool" />
+          <Property Name="Has_Toxicos" Type="bool" />
+          <Property Name="Is_Sociedade_Secreta" Type="bool" />
+          <Property Name="Has_Ensino_Fundamental" Type="bool" />
+          <Property Name="Has_Ensino_Medio" Type="bool" />
+          <Property Name="Has_Ensino_Superior" Type="bool" />
+          <Property Name="Outros_Cursos" Type="varchar" MaxLength="5000" />
+          <Property Name="Formacao_Descricao" Type="varchar" MaxLength="3000" />
+          <Property Name="Is_Ativo" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="professor_cursos">
+          <Key>
+            <PropertyRef Name="Professor_ID" />
+            <PropertyRef Name="Curso_ID" />
+          </Key>
+          <Property Name="Professor_ID" Type="int" Nullable="false" />
+          <Property Name="Curso_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="turma">
+          <Key>
+            <PropertyRef Name="Turma_ID" />
+          </Key>
+          <Property Name="Turma_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Alunos_Qtt" Type="int" />
+          <Property Name="Curso_ID" Type="int" Nullable="false" />
+          <Property Name="Is_Ativo" Type="bool" Nullable="false" />
+        </EntityType>
+        <Association Name="aluno_ibfk_1">
+          <End Role="nacao" Type="Self.nacao" Multiplicity="1" />
+          <End Role="aluno" Type="Self.aluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="aluno">
+              <PropertyRef Name="Nacao_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diretor_ibfk_1">
+          <End Role="nacao" Type="Self.nacao" Multiplicity="1" />
+          <End Role="diretor" Type="Self.diretor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="diretor">
+              <PropertyRef Name="Nacao_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="falta_ibfk_1">
+          <End Role="aluno" Type="Self.aluno" Multiplicity="1" />
+          <End Role="falta" Type="Self.falta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aluno">
+              <PropertyRef Name="Aluno_ID" />
+            </Principal>
+            <Dependent Role="falta">
+              <PropertyRef Name="Aluno_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="falta_ibfk_2">
+          <End Role="disciplina" Type="Self.disciplina" Multiplicity="1" />
+          <End Role="falta" Type="Self.falta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="disciplina">
+              <PropertyRef Name="Disciplina_ID" />
+            </Principal>
+            <Dependent Role="falta">
+              <PropertyRef Name="Disciplina_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nota_ibfk_1">
+          <End Role="aluno" Type="Self.aluno" Multiplicity="1" />
+          <End Role="nota" Type="Self.nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aluno">
+              <PropertyRef Name="Aluno_ID" />
+            </Principal>
+            <Dependent Role="nota">
+              <PropertyRef Name="Aluno_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nota_ibfk_2">
+          <End Role="disciplina" Type="Self.disciplina" Multiplicity="1" />
+          <End Role="nota" Type="Self.nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="disciplina">
+              <PropertyRef Name="Disciplina_ID" />
+            </Principal>
+            <Dependent Role="nota">
+              <PropertyRef Name="Disciplina_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nota_ibfk_3">
+          <End Role="curso" Type="Self.curso" Multiplicity="1" />
+          <End Role="nota" Type="Self.nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="curso">
+              <PropertyRef Name="Curso_ID" />
+            </Principal>
+            <Dependent Role="nota">
+              <PropertyRef Name="Curso_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pais_ID">
+          <End Role="nacao" Type="Self.nacao" Multiplicity="1" />
+          <End Role="localizacao" Type="Self.localizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="localizacao">
+              <PropertyRef Name="Pais_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pastor_ibfk_1">
+          <End Role="igreja" Type="Self.igreja" Multiplicity="1" />
+          <End Role="pastor" Type="Self.pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="igreja">
+              <PropertyRef Name="Igreja_ID" />
+            </Principal>
+            <Dependent Role="pastor">
+              <PropertyRef Name="Igreja_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="professor_ibfk_1">
+          <End Role="nacao" Type="Self.nacao" Multiplicity="1" />
+          <End Role="professor" Type="Self.professor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="professor">
+              <PropertyRef Name="Nacao_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="turma_ibfk_1">
+          <End Role="curso" Type="Self.curso" Multiplicity="1" />
+          <End Role="turma" Type="Self.turma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="curso">
+              <PropertyRef Name="Curso_ID" />
+            </Principal>
+            <Dependent Role="turma">
+              <PropertyRef Name="Curso_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="logossystemModelStoreContainer">
           <EntitySet Name="aluno" EntityType="Self.aluno" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="aluno_cursos" EntityType="Self.aluno_cursos" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="curso" EntityType="Self.curso" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="diretor" EntityType="Self.diretor" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="disciplina" EntityType="Self.disciplina" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="falta" EntityType="Self.falta" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="igreja" EntityType="Self.igreja" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="instituicao" EntityType="Self.instituicao" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="localizacao" EntityType="Self.localizacao" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="nacao" EntityType="Self.nacao" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="nota" EntityType="Self.nota" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="pastor" EntityType="Self.pastor" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="professor" EntityType="Self.professor" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="professor_cursos" EntityType="Self.professor_cursos" Schema="logossystem" store:Type="Tables" />
+          <EntitySet Name="turma" EntityType="Self.turma" Schema="logossystem" store:Type="Tables" />
+          <AssociationSet Name="aluno_ibfk_1" Association="Self.aluno_ibfk_1">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="aluno" EntitySet="aluno" />
+          </AssociationSet>
+          <AssociationSet Name="diretor_ibfk_1" Association="Self.diretor_ibfk_1">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="diretor" EntitySet="diretor" />
+          </AssociationSet>
+          <AssociationSet Name="falta_ibfk_1" Association="Self.falta_ibfk_1">
+            <End Role="aluno" EntitySet="aluno" />
+            <End Role="falta" EntitySet="falta" />
+          </AssociationSet>
+          <AssociationSet Name="falta_ibfk_2" Association="Self.falta_ibfk_2">
+            <End Role="disciplina" EntitySet="disciplina" />
+            <End Role="falta" EntitySet="falta" />
+          </AssociationSet>
+          <AssociationSet Name="nota_ibfk_1" Association="Self.nota_ibfk_1">
+            <End Role="aluno" EntitySet="aluno" />
+            <End Role="nota" EntitySet="nota" />
+          </AssociationSet>
+          <AssociationSet Name="nota_ibfk_2" Association="Self.nota_ibfk_2">
+            <End Role="disciplina" EntitySet="disciplina" />
+            <End Role="nota" EntitySet="nota" />
+          </AssociationSet>
+          <AssociationSet Name="nota_ibfk_3" Association="Self.nota_ibfk_3">
+            <End Role="curso" EntitySet="curso" />
+            <End Role="nota" EntitySet="nota" />
+          </AssociationSet>
+          <AssociationSet Name="Pais_ID" Association="Self.Pais_ID">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="localizacao" EntitySet="localizacao" />
+          </AssociationSet>
+          <AssociationSet Name="pastor_ibfk_1" Association="Self.pastor_ibfk_1">
+            <End Role="igreja" EntitySet="igreja" />
+            <End Role="pastor" EntitySet="pastor" />
+          </AssociationSet>
+          <AssociationSet Name="professor_ibfk_1" Association="Self.professor_ibfk_1">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="professor" EntitySet="professor" />
+          </AssociationSet>
+          <AssociationSet Name="turma_ibfk_1" Association="Self.turma_ibfk_1">
+            <End Role="curso" EntitySet="curso" />
+            <End Role="turma" EntitySet="turma" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="logossystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="logossystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aluno" EntityType="logossystemModel.aluno" />
+          <EntitySet Name="curso" EntityType="logossystemModel.curso" />
+          <EntitySet Name="diretor" EntityType="logossystemModel.diretor" />
+          <EntitySet Name="disciplina" EntityType="logossystemModel.disciplina" />
+          <EntitySet Name="falta" EntityType="logossystemModel.falta" />
+          <EntitySet Name="igreja" EntityType="logossystemModel.igreja" />
+          <EntitySet Name="instituicao" EntityType="logossystemModel.instituicao" />
+          <EntitySet Name="localizacao" EntityType="logossystemModel.localizacao" />
+          <EntitySet Name="nacao" EntityType="logossystemModel.nacao" />
+          <EntitySet Name="nota" EntityType="logossystemModel.nota" />
+          <EntitySet Name="pastor" EntityType="logossystemModel.pastor" />
+          <EntitySet Name="professor" EntityType="logossystemModel.professor" />
+          <EntitySet Name="turma" EntityType="logossystemModel.turma" />
+          <AssociationSet Name="aluno_ibfk_1" Association="logossystemModel.aluno_ibfk_1">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="aluno" EntitySet="aluno" />
+          </AssociationSet>
+          <AssociationSet Name="falta_ibfk_1" Association="logossystemModel.falta_ibfk_1">
+            <End Role="aluno" EntitySet="aluno" />
+            <End Role="falta" EntitySet="falta" />
+          </AssociationSet>
+          <AssociationSet Name="nota_ibfk_1" Association="logossystemModel.nota_ibfk_1">
+            <End Role="aluno" EntitySet="aluno" />
+            <End Role="nota" EntitySet="nota" />
+          </AssociationSet>
+          <AssociationSet Name="turma_ibfk_1" Association="logossystemModel.turma_ibfk_1">
+            <End Role="curso" EntitySet="curso" />
+            <End Role="turma" EntitySet="turma" />
+          </AssociationSet>
+          <AssociationSet Name="diretor_ibfk_1" Association="logossystemModel.diretor_ibfk_1">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="diretor" EntitySet="diretor" />
+          </AssociationSet>
+          <AssociationSet Name="falta_ibfk_2" Association="logossystemModel.falta_ibfk_2">
+            <End Role="disciplina" EntitySet="disciplina" />
+            <End Role="falta" EntitySet="falta" />
+          </AssociationSet>
+          <AssociationSet Name="nota_ibfk_2" Association="logossystemModel.nota_ibfk_2">
+            <End Role="disciplina" EntitySet="disciplina" />
+            <End Role="nota" EntitySet="nota" />
+          </AssociationSet>
+          <AssociationSet Name="pastor_ibfk_1" Association="logossystemModel.pastor_ibfk_1">
+            <End Role="igreja" EntitySet="igreja" />
+            <End Role="pastor" EntitySet="pastor" />
+          </AssociationSet>
+          <AssociationSet Name="Pais_ID" Association="logossystemModel.Pais_ID">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="localizacao" EntitySet="localizacao" />
+          </AssociationSet>
+          <AssociationSet Name="professor_ibfk_1" Association="logossystemModel.professor_ibfk_1">
+            <End Role="nacao" EntitySet="nacao" />
+            <End Role="professor" EntitySet="professor" />
+          </AssociationSet>
+          <EntitySet Name="aluno_cursos" EntityType="logossystemModel.aluno_cursos" />
+          <EntitySet Name="professor_cursos" EntityType="logossystemModel.professor_cursos" />
+          <AssociationSet Name="nota_ibfk_3" Association="logossystemModel.nota_ibfk_3">
+            <End Role="curso" EntitySet="curso" />
+            <End Role="nota" EntitySet="nota" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="aluno">
           <Key>
             <PropertyRef Name="Aluno_ID" />
           </Key>
           <Property Name="Aluno_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PrimeiroNome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="SegundoNome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Igreja" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Idade" Type="Int32" />
+          <Property Name="Primeiro_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Segundo_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Nascimento" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Area_Ensino" Type="Int32" />
+          <Property Name="Telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Nacao_ID" Type="Int32" Nullable="false" />
+          <Property Name="Testemunho" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Cargos" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Igreja_Membro_Ha_Dez_Anos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Batismo" Type="DateTime" />
+          <Property Name="CidadeNascimento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Idade" Type="Int32" Nullable="false" />
+          <Property Name="Sexo" Type="Int32" Nullable="false" />
+          <Property Name="Pai_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Mae_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EnderecoComercial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TelefoneComercial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Profissao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_Civil" Type="Int32" />
+          <Property Name="Estado_Civil_Antigo" Type="Int32" />
+          <Property Name="Filhos_Qtt" Type="Int32" />
+          <Property Name="Conjuge_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Ativo" Type="Boolean" Nullable="false" />
+          <Property Name="Leciona_EBD" Type="Boolean" Nullable="false" />
+          <Property Name="Dirige_Culto" Type="Boolean" Nullable="false" />
+          <Property Name="Prega" Type="Boolean" Nullable="false" />
+          <Property Name="Has_Tabaco" Type="Boolean" />
+          <Property Name="Has_Toxicos" Type="Boolean" />
+          <Property Name="Is_Sociedade_Secreta" Type="Boolean" />
+          <Property Name="Has_Ensino_Fundamental" Type="Boolean" />
+          <Property Name="Has_Ensino_Medio" Type="Boolean" />
+          <Property Name="Has_Ensino_Superior" Type="Boolean" />
+          <Property Name="Outros_Cursos" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="nacao" Relationship="logossystemModel.aluno_ibfk_1" FromRole="aluno" ToRole="nacao" />
+          <NavigationProperty Name="falta" Relationship="logossystemModel.falta_ibfk_1" FromRole="aluno" ToRole="falta" />
+          <NavigationProperty Name="nota" Relationship="logossystemModel.nota_ibfk_1" FromRole="aluno" ToRole="nota" />
         </EntityType>
-        <EntityContainer Name="logossystemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="aluno" EntityType="Self.aluno" />
-        </EntityContainer>
+        <EntityType Name="curso">
+          <Key>
+            <PropertyRef Name="Curso_ID" />
+          </Key>
+          <Property Name="Curso_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duracao_Semestres" Type="Int32" />
+          <Property Name="Publico_Alvo" Type="Int32" />
+          <Property Name="Descricao" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="turma" Relationship="logossystemModel.turma_ibfk_1" FromRole="curso" ToRole="turma" />
+          <NavigationProperty Name="nota" Relationship="logossystemModel.nota_ibfk_3" FromRole="curso" ToRole="nota" />
+        </EntityType>
+        <EntityType Name="diretor">
+          <Key>
+            <PropertyRef Name="Diretor_ID" />
+          </Key>
+          <Property Name="Diretor_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Primeiro_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Segundo_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Nascimento" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Nacao_ID" Type="Int32" Nullable="false" />
+          <Property Name="Posicao" Type="Int32" Nullable="false" />
+          <Property Name="Formacao_Descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="CidadeNascimento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Idade" Type="Int32" Nullable="false" />
+          <Property Name="Sexo" Type="Int32" Nullable="false" />
+          <Property Name="Pai_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Mae_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EnderecoComercial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TelefoneComercial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Profissao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_Civil" Type="Int32" />
+          <Property Name="Filhos_Qtt" Type="Int32" />
+          <Property Name="Conjuge_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Professor" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="nacao" Relationship="logossystemModel.diretor_ibfk_1" FromRole="diretor" ToRole="nacao" />
+        </EntityType>
+        <EntityType Name="disciplina">
+          <Key>
+            <PropertyRef Name="Disciplina_ID" />
+          </Key>
+          <Property Name="Disciplina_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Creditos_Qtt" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="falta" Relationship="logossystemModel.falta_ibfk_2" FromRole="disciplina" ToRole="falta" />
+          <NavigationProperty Name="nota" Relationship="logossystemModel.nota_ibfk_2" FromRole="disciplina" ToRole="nota" />
+        </EntityType>
+        <EntityType Name="falta">
+          <Key>
+            <PropertyRef Name="Falta_ID" />
+          </Key>
+          <Property Name="Falta_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <Property Name="Aluno_ID" Type="Int32" Nullable="false" />
+          <Property Name="Disciplina_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="aluno" Relationship="logossystemModel.falta_ibfk_1" FromRole="falta" ToRole="aluno" />
+          <NavigationProperty Name="disciplina" Relationship="logossystemModel.falta_ibfk_2" FromRole="falta" ToRole="disciplina" />
+        </EntityType>
+        <EntityType Name="igreja">
+          <Key>
+            <PropertyRef Name="Igreja_ID" />
+          </Key>
+          <Property Name="Igreja_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Denominacao" Type="Int32" Nullable="false" />
+          <Property Name="Localizacao_ID" Type="Int32" Nullable="false" />
+          <Property Name="Telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pastor" Relationship="logossystemModel.pastor_ibfk_1" FromRole="igreja" ToRole="pastor" />
+        </EntityType>
+        <EntityType Name="instituicao">
+          <Key>
+            <PropertyRef Name="Instituicao_ID" />
+          </Key>
+          <Property Name="Instituicao_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Fundacao" Type="DateTime" Nullable="false" />
+          <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fundador" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="localizacao">
+          <Key>
+            <PropertyRef Name="Localizacao_ID" />
+          </Key>
+          <Property Name="Localizacao_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Endereco_Complemento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cidade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pais_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="nacao" Relationship="logossystemModel.Pais_ID" FromRole="localizacao" ToRole="nacao" />
+        </EntityType>
+        <EntityType Name="nacao">
+          <Key>
+            <PropertyRef Name="Nacao_ID" />
+          </Key>
+          <Property Name="Nacao_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="aluno" Relationship="logossystemModel.aluno_ibfk_1" FromRole="nacao" ToRole="aluno" />
+          <NavigationProperty Name="diretor" Relationship="logossystemModel.diretor_ibfk_1" FromRole="nacao" ToRole="diretor" />
+          <NavigationProperty Name="localizacao" Relationship="logossystemModel.Pais_ID" FromRole="nacao" ToRole="localizacao" />
+          <NavigationProperty Name="professor" Relationship="logossystemModel.professor_ibfk_1" FromRole="nacao" ToRole="professor" />
+        </EntityType>
+        <EntityType Name="nota">
+          <Key>
+            <PropertyRef Name="Nota_ID" />
+          </Key>
+          <Property Name="Nota_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" />
+          <Property Name="Aluno_ID" Type="Int32" Nullable="false" />
+          <Property Name="Disciplina_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="aluno" Relationship="logossystemModel.nota_ibfk_1" FromRole="nota" ToRole="aluno" />
+          <NavigationProperty Name="disciplina" Relationship="logossystemModel.nota_ibfk_2" FromRole="nota" ToRole="disciplina" />
+          <Property Name="Curso_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="curso" Relationship="logossystemModel.nota_ibfk_3" FromRole="nota" ToRole="curso" />
+        </EntityType>
+        <EntityType Name="pastor">
+          <Key>
+            <PropertyRef Name="Pastor_ID" />
+          </Key>
+          <Property Name="Pastor_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Primeiro_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Segundo_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Nascimento" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Nacao_ID" Type="Int32" Nullable="false" />
+          <Property Name="Idade" Type="Int32" Nullable="false" />
+          <Property Name="Sexo" Type="Int32" Nullable="false" />
+          <Property Name="Estado_Civil" Type="Int32" />
+          <Property Name="Conjuge_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Igreja_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="igreja" Relationship="logossystemModel.pastor_ibfk_1" FromRole="pastor" ToRole="igreja" />
+        </EntityType>
+        <EntityType Name="professor">
+          <Key>
+            <PropertyRef Name="Professor_ID" />
+          </Key>
+          <Property Name="Professor_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Primeiro_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Segundo_Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Nascimento" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Area_Ensino" Type="Int32" />
+          <Property Name="Telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Nacao_ID" Type="Int32" Nullable="false" />
+          <Property Name="CidadeNascimento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Idade" Type="Int32" Nullable="false" />
+          <Property Name="Sexo" Type="Int32" Nullable="false" />
+          <Property Name="Pai_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Mae_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EnderecoComercial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TelefoneComercial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Profissao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_Civil" Type="Int32" />
+          <Property Name="Estado_Civil_Antigo" Type="Int32" />
+          <Property Name="Filhos_Qtt" Type="Int32" />
+          <Property Name="Conjuge_Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Has_Tabaco" Type="Boolean" />
+          <Property Name="Has_Toxicos" Type="Boolean" />
+          <Property Name="Is_Sociedade_Secreta" Type="Boolean" />
+          <Property Name="Has_Ensino_Fundamental" Type="Boolean" />
+          <Property Name="Has_Ensino_Medio" Type="Boolean" />
+          <Property Name="Has_Ensino_Superior" Type="Boolean" />
+          <Property Name="Outros_Cursos" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Formacao_Descricao" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="nacao" Relationship="logossystemModel.professor_ibfk_1" FromRole="professor" ToRole="nacao" />
+        </EntityType>
+        <EntityType Name="turma">
+          <Key>
+            <PropertyRef Name="Turma_ID" />
+          </Key>
+          <Property Name="Turma_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Alunos_Qtt" Type="Int32" />
+          <Property Name="Curso_ID" Type="Int32" Nullable="false" />
+          <Property Name="Is_Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="curso" Relationship="logossystemModel.turma_ibfk_1" FromRole="turma" ToRole="curso" />
+        </EntityType>
+        <Association Name="aluno_ibfk_1">
+          <End Type="logossystemModel.nacao" Role="nacao" Multiplicity="1" />
+          <End Type="logossystemModel.aluno" Role="aluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="aluno">
+              <PropertyRef Name="Nacao_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="falta_ibfk_1">
+          <End Type="logossystemModel.aluno" Role="aluno" Multiplicity="1" />
+          <End Type="logossystemModel.falta" Role="falta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aluno">
+              <PropertyRef Name="Aluno_ID" />
+            </Principal>
+            <Dependent Role="falta">
+              <PropertyRef Name="Aluno_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nota_ibfk_1">
+          <End Type="logossystemModel.aluno" Role="aluno" Multiplicity="1" />
+          <End Type="logossystemModel.nota" Role="nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aluno">
+              <PropertyRef Name="Aluno_ID" />
+            </Principal>
+            <Dependent Role="nota">
+              <PropertyRef Name="Aluno_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="turma_ibfk_1">
+          <End Type="logossystemModel.curso" Role="curso" Multiplicity="1" />
+          <End Type="logossystemModel.turma" Role="turma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="curso">
+              <PropertyRef Name="Curso_ID" />
+            </Principal>
+            <Dependent Role="turma">
+              <PropertyRef Name="Curso_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diretor_ibfk_1">
+          <End Type="logossystemModel.nacao" Role="nacao" Multiplicity="1" />
+          <End Type="logossystemModel.diretor" Role="diretor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="diretor">
+              <PropertyRef Name="Nacao_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="falta_ibfk_2">
+          <End Type="logossystemModel.disciplina" Role="disciplina" Multiplicity="1" />
+          <End Type="logossystemModel.falta" Role="falta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="disciplina">
+              <PropertyRef Name="Disciplina_ID" />
+            </Principal>
+            <Dependent Role="falta">
+              <PropertyRef Name="Disciplina_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nota_ibfk_2">
+          <End Type="logossystemModel.disciplina" Role="disciplina" Multiplicity="1" />
+          <End Type="logossystemModel.nota" Role="nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="disciplina">
+              <PropertyRef Name="Disciplina_ID" />
+            </Principal>
+            <Dependent Role="nota">
+              <PropertyRef Name="Disciplina_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pastor_ibfk_1">
+          <End Type="logossystemModel.igreja" Role="igreja" Multiplicity="1" />
+          <End Type="logossystemModel.pastor" Role="pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="igreja">
+              <PropertyRef Name="Igreja_ID" />
+            </Principal>
+            <Dependent Role="pastor">
+              <PropertyRef Name="Igreja_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pais_ID">
+          <End Type="logossystemModel.nacao" Role="nacao" Multiplicity="1" />
+          <End Type="logossystemModel.localizacao" Role="localizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="localizacao">
+              <PropertyRef Name="Pais_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="professor_ibfk_1">
+          <End Type="logossystemModel.nacao" Role="nacao" Multiplicity="1" />
+          <End Type="logossystemModel.professor" Role="professor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacao">
+              <PropertyRef Name="Nacao_ID" />
+            </Principal>
+            <Dependent Role="professor">
+              <PropertyRef Name="Nacao_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="aluno_cursos">
+          <Key>
+            <PropertyRef Name="Aluno_ID" />
+            <PropertyRef Name="Curso_ID" />
+          </Key>
+          <Property Name="Aluno_ID" Type="Int32" Nullable="false" />
+          <Property Name="Curso_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="professor_cursos">
+          <Key>
+            <PropertyRef Name="Professor_ID" />
+            <PropertyRef Name="Curso_ID" />
+          </Key>
+          <Property Name="Professor_ID" Type="Int32" Nullable="false" />
+          <Property Name="Curso_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="nota_ibfk_3">
+          <End Type="logossystemModel.curso" Role="curso" Multiplicity="1" />
+          <End Type="logossystemModel.nota" Role="nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="curso">
+              <PropertyRef Name="Curso_ID" />
+            </Principal>
+            <Dependent Role="nota">
+              <PropertyRef Name="Curso_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -45,11 +898,249 @@
           <EntitySetMapping Name="aluno">
             <EntityTypeMapping TypeName="logossystemModel.aluno">
               <MappingFragment StoreEntitySet="aluno">
-                <ScalarProperty Name="Aluno_ID" ColumnName="Aluno_ID" />
-                <ScalarProperty Name="PrimeiroNome" ColumnName="PrimeiroNome" />
-                <ScalarProperty Name="SegundoNome" ColumnName="SegundoNome" />
-                <ScalarProperty Name="Igreja" ColumnName="Igreja" />
+                <ScalarProperty Name="Outros_Cursos" ColumnName="Outros_Cursos" />
+                <ScalarProperty Name="Has_Ensino_Superior" ColumnName="Has_Ensino_Superior" />
+                <ScalarProperty Name="Has_Ensino_Medio" ColumnName="Has_Ensino_Medio" />
+                <ScalarProperty Name="Has_Ensino_Fundamental" ColumnName="Has_Ensino_Fundamental" />
+                <ScalarProperty Name="Is_Sociedade_Secreta" ColumnName="Is_Sociedade_Secreta" />
+                <ScalarProperty Name="Has_Toxicos" ColumnName="Has_Toxicos" />
+                <ScalarProperty Name="Has_Tabaco" ColumnName="Has_Tabaco" />
+                <ScalarProperty Name="Prega" ColumnName="Prega" />
+                <ScalarProperty Name="Dirige_Culto" ColumnName="Dirige_Culto" />
+                <ScalarProperty Name="Leciona_EBD" ColumnName="Leciona_EBD" />
+                <ScalarProperty Name="Is_Ativo" ColumnName="Is_Ativo" />
+                <ScalarProperty Name="Conjuge_Nome" ColumnName="Conjuge_Nome" />
+                <ScalarProperty Name="Filhos_Qtt" ColumnName="Filhos_Qtt" />
+                <ScalarProperty Name="Estado_Civil_Antigo" ColumnName="Estado_Civil_Antigo" />
+                <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+                <ScalarProperty Name="Profissao" ColumnName="Profissao" />
+                <ScalarProperty Name="TelefoneComercial" ColumnName="TelefoneComercial" />
+                <ScalarProperty Name="EnderecoComercial" ColumnName="EnderecoComercial" />
+                <ScalarProperty Name="Mae_Nome" ColumnName="Mae_Nome" />
+                <ScalarProperty Name="Pai_Nome" ColumnName="Pai_Nome" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="CidadeNascimento" ColumnName="CidadeNascimento" />
+                <ScalarProperty Name="Data_Batismo" ColumnName="Data_Batismo" />
+                <ScalarProperty Name="Igreja_Membro_Ha_Dez_Anos" ColumnName="Igreja_Membro_Ha_Dez_Anos" />
+                <ScalarProperty Name="Cargos" ColumnName="Cargos" />
+                <ScalarProperty Name="Testemunho" ColumnName="Testemunho" />
+                <ScalarProperty Name="Nacao_ID" ColumnName="Nacao_ID" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Area_Ensino" ColumnName="Area_Ensino" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+                <ScalarProperty Name="Segundo_Nome" ColumnName="Segundo_Nome" />
+                <ScalarProperty Name="Primeiro_Nome" ColumnName="Primeiro_Nome" />
+                <ScalarProperty Name="Aluno_ID" ColumnName="Aluno_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="curso">
+            <EntityTypeMapping TypeName="logossystemModel.curso">
+              <MappingFragment StoreEntitySet="curso">
+                <ScalarProperty Name="Is_Ativo" ColumnName="Is_Ativo" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Publico_Alvo" ColumnName="Publico_Alvo" />
+                <ScalarProperty Name="Duracao_Semestres" ColumnName="Duracao_Semestres" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Curso_ID" ColumnName="Curso_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diretor">
+            <EntityTypeMapping TypeName="logossystemModel.diretor">
+              <MappingFragment StoreEntitySet="diretor">
+                <ScalarProperty Name="Is_Professor" ColumnName="Is_Professor" />
+                <ScalarProperty Name="Conjuge_Nome" ColumnName="Conjuge_Nome" />
+                <ScalarProperty Name="Filhos_Qtt" ColumnName="Filhos_Qtt" />
+                <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+                <ScalarProperty Name="Profissao" ColumnName="Profissao" />
+                <ScalarProperty Name="TelefoneComercial" ColumnName="TelefoneComercial" />
+                <ScalarProperty Name="EnderecoComercial" ColumnName="EnderecoComercial" />
+                <ScalarProperty Name="Mae_Nome" ColumnName="Mae_Nome" />
+                <ScalarProperty Name="Pai_Nome" ColumnName="Pai_Nome" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="CidadeNascimento" ColumnName="CidadeNascimento" />
+                <ScalarProperty Name="Formacao_Descricao" ColumnName="Formacao_Descricao" />
+                <ScalarProperty Name="Posicao" ColumnName="Posicao" />
+                <ScalarProperty Name="Nacao_ID" ColumnName="Nacao_ID" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+                <ScalarProperty Name="Segundo_Nome" ColumnName="Segundo_Nome" />
+                <ScalarProperty Name="Primeiro_Nome" ColumnName="Primeiro_Nome" />
+                <ScalarProperty Name="Diretor_ID" ColumnName="Diretor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="disciplina">
+            <EntityTypeMapping TypeName="logossystemModel.disciplina">
+              <MappingFragment StoreEntitySet="disciplina">
+                <ScalarProperty Name="Creditos_Qtt" ColumnName="Creditos_Qtt" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Disciplina_ID" ColumnName="Disciplina_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="falta">
+            <EntityTypeMapping TypeName="logossystemModel.falta">
+              <MappingFragment StoreEntitySet="falta">
+                <ScalarProperty Name="Disciplina_ID" ColumnName="Disciplina_ID" />
+                <ScalarProperty Name="Aluno_ID" ColumnName="Aluno_ID" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Falta_ID" ColumnName="Falta_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="igreja">
+            <EntityTypeMapping TypeName="logossystemModel.igreja">
+              <MappingFragment StoreEntitySet="igreja">
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Localizacao_ID" ColumnName="Localizacao_ID" />
+                <ScalarProperty Name="Denominacao" ColumnName="Denominacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Igreja_ID" ColumnName="Igreja_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="instituicao">
+            <EntityTypeMapping TypeName="logossystemModel.instituicao">
+              <MappingFragment StoreEntitySet="instituicao">
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Fundador" ColumnName="Fundador" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="Data_Fundacao" ColumnName="Data_Fundacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Instituicao_ID" ColumnName="Instituicao_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="localizacao">
+            <EntityTypeMapping TypeName="logossystemModel.localizacao">
+              <MappingFragment StoreEntitySet="localizacao">
+                <ScalarProperty Name="Pais_ID" ColumnName="Pais_ID" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Endereco_Complemento" ColumnName="Endereco_Complemento" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Localizacao_ID" ColumnName="Localizacao_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nacao">
+            <EntityTypeMapping TypeName="logossystemModel.nacao">
+              <MappingFragment StoreEntitySet="nacao">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Nacao_ID" ColumnName="Nacao_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nota">
+            <EntityTypeMapping TypeName="logossystemModel.nota">
+              <MappingFragment StoreEntitySet="nota">
+                <ScalarProperty Name="Curso_ID" ColumnName="Curso_ID" />
+                <ScalarProperty Name="Disciplina_ID" ColumnName="Disciplina_ID" />
+                <ScalarProperty Name="Aluno_ID" ColumnName="Aluno_ID" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nota_ID" ColumnName="Nota_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pastor">
+            <EntityTypeMapping TypeName="logossystemModel.pastor">
+              <MappingFragment StoreEntitySet="pastor">
+                <ScalarProperty Name="Igreja_ID" ColumnName="Igreja_ID" />
+                <ScalarProperty Name="Conjuge_Nome" ColumnName="Conjuge_Nome" />
+                <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="Nacao_ID" ColumnName="Nacao_ID" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+                <ScalarProperty Name="Segundo_Nome" ColumnName="Segundo_Nome" />
+                <ScalarProperty Name="Primeiro_Nome" ColumnName="Primeiro_Nome" />
+                <ScalarProperty Name="Pastor_ID" ColumnName="Pastor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="professor">
+            <EntityTypeMapping TypeName="logossystemModel.professor">
+              <MappingFragment StoreEntitySet="professor">
+                <ScalarProperty Name="Is_Ativo" ColumnName="Is_Ativo" />
+                <ScalarProperty Name="Formacao_Descricao" ColumnName="Formacao_Descricao" />
+                <ScalarProperty Name="Outros_Cursos" ColumnName="Outros_Cursos" />
+                <ScalarProperty Name="Has_Ensino_Superior" ColumnName="Has_Ensino_Superior" />
+                <ScalarProperty Name="Has_Ensino_Medio" ColumnName="Has_Ensino_Medio" />
+                <ScalarProperty Name="Has_Ensino_Fundamental" ColumnName="Has_Ensino_Fundamental" />
+                <ScalarProperty Name="Is_Sociedade_Secreta" ColumnName="Is_Sociedade_Secreta" />
+                <ScalarProperty Name="Has_Toxicos" ColumnName="Has_Toxicos" />
+                <ScalarProperty Name="Has_Tabaco" ColumnName="Has_Tabaco" />
+                <ScalarProperty Name="Conjuge_Nome" ColumnName="Conjuge_Nome" />
+                <ScalarProperty Name="Filhos_Qtt" ColumnName="Filhos_Qtt" />
+                <ScalarProperty Name="Estado_Civil_Antigo" ColumnName="Estado_Civil_Antigo" />
+                <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+                <ScalarProperty Name="Profissao" ColumnName="Profissao" />
+                <ScalarProperty Name="TelefoneComercial" ColumnName="TelefoneComercial" />
+                <ScalarProperty Name="EnderecoComercial" ColumnName="EnderecoComercial" />
+                <ScalarProperty Name="Mae_Nome" ColumnName="Mae_Nome" />
+                <ScalarProperty Name="Pai_Nome" ColumnName="Pai_Nome" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="CidadeNascimento" ColumnName="CidadeNascimento" />
+                <ScalarProperty Name="Nacao_ID" ColumnName="Nacao_ID" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Area_Ensino" ColumnName="Area_Ensino" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+                <ScalarProperty Name="Segundo_Nome" ColumnName="Segundo_Nome" />
+                <ScalarProperty Name="Primeiro_Nome" ColumnName="Primeiro_Nome" />
+                <ScalarProperty Name="Professor_ID" ColumnName="Professor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="turma">
+            <EntityTypeMapping TypeName="logossystemModel.turma">
+              <MappingFragment StoreEntitySet="turma">
+                <ScalarProperty Name="Is_Ativo" ColumnName="Is_Ativo" />
+                <ScalarProperty Name="Curso_ID" ColumnName="Curso_ID" />
+                <ScalarProperty Name="Alunos_Qtt" ColumnName="Alunos_Qtt" />
+                <ScalarProperty Name="Turma_ID" ColumnName="Turma_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aluno_cursos">
+            <EntityTypeMapping TypeName="logossystemModel.aluno_cursos">
+              <MappingFragment StoreEntitySet="aluno_cursos">
+                <ScalarProperty Name="Curso_ID" ColumnName="Curso_ID" />
+                <ScalarProperty Name="Aluno_ID" ColumnName="Aluno_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="professor_cursos">
+            <EntityTypeMapping TypeName="logossystemModel.professor_cursos">
+              <MappingFragment StoreEntitySet="professor_cursos">
+                <ScalarProperty Name="Curso_ID" ColumnName="Curso_ID" />
+                <ScalarProperty Name="Professor_ID" ColumnName="Professor_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

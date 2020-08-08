@@ -5,7 +5,32 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="827ac6a00975471e8060a7b8815a2630" Name="Diagram1">
-        <EntityTypeShape EntityType="logossystemModel.aluno" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logossystemModel.aluno" Width="1.5" PointX="3" PointY="20.375" />
+        <EntityTypeShape EntityType="logossystemModel.curso" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="logossystemModel.diretor" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="logossystemModel.disciplina" Width="1.5" PointX="3" PointY="30.75" />
+        <EntityTypeShape EntityType="logossystemModel.falta" Width="1.5" PointX="5.25" PointY="20.75" />
+        <EntityTypeShape EntityType="logossystemModel.igreja" Width="1.5" PointX="5.75" PointY="6" />
+        <EntityTypeShape EntityType="logossystemModel.instituicao" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="logossystemModel.localizacao" Width="1.5" PointX="3" PointY="16.875" />
+        <EntityTypeShape EntityType="logossystemModel.nacao" Width="1.5" PointX="0.75" PointY="14.5" />
+        <EntityTypeShape EntityType="logossystemModel.nota" Width="1.5" PointX="5.25" PointY="23.625" />
+        <EntityTypeShape EntityType="logossystemModel.pastor" Width="1.5" PointX="8" PointY="5" />
+        <EntityTypeShape EntityType="logossystemModel.professor" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="logossystemModel.turma" Width="1.5" PointX="8" PointY="1.125" />
+        <AssociationConnector Association="logossystemModel.aluno_ibfk_1" />
+        <AssociationConnector Association="logossystemModel.falta_ibfk_1" />
+        <AssociationConnector Association="logossystemModel.nota_ibfk_1" />
+        <AssociationConnector Association="logossystemModel.turma_ibfk_1" />
+        <AssociationConnector Association="logossystemModel.diretor_ibfk_1" />
+        <AssociationConnector Association="logossystemModel.falta_ibfk_2" />
+        <AssociationConnector Association="logossystemModel.nota_ibfk_2" />
+        <AssociationConnector Association="logossystemModel.pastor_ibfk_1" />
+        <AssociationConnector Association="logossystemModel.Pais_ID" />
+        <AssociationConnector Association="logossystemModel.professor_ibfk_1" />
+        <EntityTypeShape EntityType="logossystemModel.aluno_cursos" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="logossystemModel.professor_cursos" Width="1.5" PointX="5.375" PointY="10.75" />
+        <AssociationConnector Association="logossystemModel.nota_ibfk_3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
