@@ -45,6 +45,12 @@ function HomePageController($scope) {
                 Descricao: 'Contatar os professores funcionou',
                 DataCriacao: '2 dias',
                 IsNovoLembrete: false
+            },
+            {
+                Titulo: 'Contatar funfou 3',
+                Descricao: 'Contatar os professores funcionou',
+                DataCriacao: '2 dias',
+                IsNovoLembrete: false
             }
         ];
 

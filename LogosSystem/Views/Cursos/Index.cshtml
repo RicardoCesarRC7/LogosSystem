@@ -148,7 +148,7 @@
                             </select>
                             <hr />
                         </div>
-                        <div class="col-3" ng-repeat="turma in controller.turmas | filter: { IsActive: controller.filtroTurmas }">
+                        <div class="col-12 col-sm-3" ng-repeat="turma in controller.turmas | filter: { IsActive: controller.filtroTurmas }">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Curso: {{turma.NomeCurso}}</h5>
