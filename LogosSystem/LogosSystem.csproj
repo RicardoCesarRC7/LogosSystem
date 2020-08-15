@@ -167,6 +167,30 @@
     <Compile Include="Models\Repository\Database\aluno.cs">
       <DependentUpon>LogosSystemContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\Database\aluno_cursos.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\curso.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\diretor.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\disciplina.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\falta.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\igreja.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\instituicao.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\localizacao.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Repository\Database\LogosSystemContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,6 +223,24 @@
     <Compile Include="Models\Funcoes\Funcao.cs" />
     <Compile Include="Models\Enum\EDiretorPosicao.cs" />
     <Compile Include="Models\Enum\EFuncao.cs" />
+    <Compile Include="Models\Repository\Database\nacao.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\nota.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\pastor.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\professor.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\professor_cursos.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\Database\turma.cs">
+      <DependentUpon>LogosSystemContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

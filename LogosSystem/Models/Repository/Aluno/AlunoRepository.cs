@@ -23,11 +23,10 @@ namespace LogosSystem.Models.Repository.AlunoRespository
                                select new Aluno
                                {
                                    AlunoID = aluno.Aluno_ID,
-                                   PrimeiroNome = aluno.PrimeiroNome,
-                                   SegundoNome = aluno.SegundoNome,
-                                   NomeCompleto = aluno.PrimeiroNome + " " + aluno.SegundoNome,
-                                   Idade = aluno.Idade.HasValue ? aluno.Idade.Value : 0,
-                                   IgrejaMembroDezAnos = aluno.Igreja
+                                   PrimeiroNome = aluno.Primeiro_Nome,
+                                   SegundoNome = aluno.Segundo_Nome,
+                                   NomeCompleto = aluno.Primeiro_Nome + " " + aluno.Segundo_Nome,
+                                   Idade = aluno.Idade
                                }).ToList();
 
             return listaAlunos;
