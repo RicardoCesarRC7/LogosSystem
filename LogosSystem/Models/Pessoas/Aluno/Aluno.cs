@@ -20,6 +20,10 @@ namespace LogosSystem.Models.Pessoas.Alunos
         public bool DirigeCulto { get; set; }
         public bool Prega { get; set; }
         public string OutrosCargos { get; set; }
+        public int AreaEnsino { get; set; }
+        public string Testemunho { get; set; }
+        public string NomePai { get; set; }
+        public string NomeMae { get; set; }
 
         public List<Nota> Notas { get; set; }
         public double Faltas { get; set; }

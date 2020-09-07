@@ -163,6 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Base\BaseResponse.cs" />
     <Compile Include="Models\Repository\Aluno\AlunoRepository.cs" />
     <Compile Include="Models\Repository\Database\aluno.cs">
       <DependentUpon>LogosSystemContext.tt</DependentUpon>

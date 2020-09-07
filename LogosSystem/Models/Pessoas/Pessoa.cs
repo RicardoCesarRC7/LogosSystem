@@ -18,16 +18,16 @@ namespace LogosSystem.Models.Pessoas
         public string Celular { get; set; }
         public string RG { get; set; }
         public string CPF { get; set; }
-        public string Nacionalidade { get; set; }
+        public int Nacionalidade { get; set; }
         public string LocalNascimento { get; set; }
         public int Idade { get; set; }
-        public string Sexo { get; set; }
+        public int Sexo { get; set; }
         public string Filiacao { get; set; }
         public string EnderecoComercial { get; set; }
         public string TelefoneComercial { get; set; }
         public string Profissao { get; set; }
-        public string EstadoCivil { get; set; }
-        public string EstadoCivilAntigo { get; set; }
+        public int EstadoCivil { get; set; }
+        public int EstadoCivilAntigo { get; set; }
         public int QttFilhos { get; set; }
         public string Conjuge { get; set; }
         public bool Tabaco { get; set; }
@@ -38,5 +38,6 @@ namespace LogosSystem.Models.Pessoas
         public bool EnsinoMedio { get; set; }
         public bool EnsinoSuperior { get; set; }
         public string OutrosCursos { get; set; }
+        public bool IsAtivo { get; set; }
     }
 }
