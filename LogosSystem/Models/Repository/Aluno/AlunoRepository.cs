@@ -149,5 +149,12 @@ namespace LogosSystem.Models.Repository.AlunoRespository
 
             return response;
         }
+
+        public BaseResponse RemoveAluno(Aluno aluno)
+        {
+            BaseResponse response = new BaseResponse();
+
+            return response;
+        }
     }
 }

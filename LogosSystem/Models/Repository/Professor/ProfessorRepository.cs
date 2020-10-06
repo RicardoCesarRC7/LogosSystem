@@ -9,7 +9,7 @@ using System.Web;
 
 namespace LogosSystem.Models.Repository.Professores
 {
-    public class ProfessorRepository
+    public class ProfessorRepository : IProfessorRepository
     {
         private logossystemEntities _logosContext;
 
@@ -86,6 +86,20 @@ namespace LogosSystem.Models.Repository.Professores
 
                 _logosContext.SaveChanges();
             }
+
+            return response;
+        }
+
+        public BaseResponse UpdateProfessor(Professor prof)
+        {
+            BaseResponse response = new BaseResponse();
+
+            return response;
+        }
+
+        public BaseResponse RemoveProfessor(Professor prof)
+        {
+            BaseResponse response = new BaseResponse();
 
             return response;
         }
