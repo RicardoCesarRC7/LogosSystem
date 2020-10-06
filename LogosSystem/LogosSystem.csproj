@@ -242,6 +242,7 @@
     <Compile Include="Models\Repository\Database\turma.cs">
       <DependentUpon>LogosSystemContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\Professor\ProfessorRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

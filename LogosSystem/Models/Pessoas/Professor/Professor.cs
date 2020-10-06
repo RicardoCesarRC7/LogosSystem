@@ -12,6 +12,6 @@ namespace LogosSystem.Models.Pessoas.Professores
         public int ProfessorID { get; set; }
         public List<Curso> Cursos { get; set; }
         public List<Disciplina> Disciplinas { get; set; }
-        public string Area { get; set; }
+        public int Area { get; set; }
     }
 }

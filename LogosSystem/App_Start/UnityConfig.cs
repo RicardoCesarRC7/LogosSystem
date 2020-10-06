@@ -1,3 +1,4 @@
+using LogosSystem.Models.Repository.AlunoRespository;
 using System;
 
 using Unity;
@@ -39,6 +40,8 @@ namespace LogosSystem
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
+
+            container.RegisterType<IAlunoRepository, AlunoRepository>();
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
