@@ -29,7 +29,14 @@
             </div>
         </div>
         <div class="col-12 my-3 p-0">
-            <table class="table">
+            
+            <!--Carregando alunos-->
+            <div class="col-12 text-center pt-5 pb-5" ng-show="controller.isLoading && controller.alunos.length == 0">
+                <strong>Buscando alunos...</strong>
+            </div>
+
+            <!--Tabela alunos-->
+            <table class="table" ng-show="controller.alunos.length > 0">
                 <tr>
                     <th>Nome</th>
                     <th>Igreja</th>
@@ -47,6 +54,11 @@
                     </td>
                 </tr>
             </table>
+
+            <!--não há alunos-->
+            <div class="col-12 text-center pt-5 pb-5" ng-show="!controller.isLoading controller.alunos.length == 0">
+                <strong>Não há Alunos registrados</strong>
+            </div>
         </div>
     </div>
 

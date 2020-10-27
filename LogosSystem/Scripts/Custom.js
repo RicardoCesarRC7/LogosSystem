@@ -25,7 +25,11 @@ $(document).ready(function () {
         window.location.href = getMainUrl() + '/Professor';
     });
 
-    $('#cursosDrop').click(function () {
+    $('#professoresDrop').click(function () {
+        window.location.href = getMainUrl() + '/Professor';
+    });
+
+    $('#cursosLink').click(function () {
         window.location.href = getMainUrl() + '/Cursos';
     });
 

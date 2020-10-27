@@ -1,7 +1,10 @@
+using log4net;
+using log4net.Config;
 using LogosSystem.Models.Repository.AlunoRespository;
+using LogosSystem.Models.Repository.Professores;
 using System;
-
 using Unity;
+using Unity.Injection;
 
 namespace LogosSystem
 {
@@ -41,10 +44,11 @@ namespace LogosSystem
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
 
-            container.RegisterType<IAlunoRepository, AlunoRepository>();
+            XmlConfigurator.Configure();
+            container.RegisterType<ILog>(new InjectionFactory(factory => LogManager.GetLogger("GeneralLogger")));
 
-            // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IAlunoRepository, AlunoRepository>();
+            container.RegisterType<IProfessorRepository, ProfessorRepository>();
         }
     }
 }

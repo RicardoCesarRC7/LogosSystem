@@ -5,16 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LogosSystem.Models.Base;
+using log4net;
 
 namespace LogosSystem.Models.Repository.AlunoRespository
 {
     public class AlunoRepository : IAlunoRepository
     {
         private logossystemEntities _logosContext;
+        private readonly ILog _log;
 
-        public AlunoRepository()
+        public AlunoRepository(ILog log)
         {
             _logosContext = new logossystemEntities();
+            _log = log;
         }
 
         public List<Aluno> GetAlunos()
@@ -153,6 +156,18 @@ namespace LogosSystem.Models.Repository.AlunoRespository
         public BaseResponse RemoveAluno(Aluno aluno)
         {
             BaseResponse response = new BaseResponse();
+
+            if (aluno != null)
+            {
+                aluno alunoDB = _logosContext.aluno.Where(a => a.Aluno_ID == aluno.AlunoID).FirstOrDefault();
+
+                _logosContext.aluno.Remove(alunoDB);
+
+                _logosContext.SaveChanges();
+
+                response.Success = true;
+                response.Description = "Aluno removido com sucesso!";
+            }
 
             return response;
         }

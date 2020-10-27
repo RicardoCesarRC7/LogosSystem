@@ -1,4 +1,5 @@
-﻿using LogosSystem.Models.Repository.AlunoRespository;
+﻿using log4net;
+using LogosSystem.Models.Repository.AlunoRespository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,13 @@ namespace LogosSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private IAlunoRepository _alunoRepository;
+        private readonly IAlunoRepository _alunoRepository;
+        private readonly ILog _log;
 
-        public HomeController()
+        public HomeController(ILog log, IAlunoRepository alunoRepository)
         {
-            _alunoRepository = new AlunoRepository();
+            _alunoRepository = alunoRepository;
+            _log = log;
         }
 
         public ActionResult Index()
@@ -23,40 +26,9 @@ namespace LogosSystem.Controllers
             return View();
         }
 
-        public ActionResult Aluno()
-        {
-            return View();
-        }
-
-        public ActionResult Professor()
-        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         public ActionResult LoginView()
         {
             return View();
-        }
-
-        public JsonResult GetAlunos()
-        {
-            var listaAlunos = _alunoRepository.GetAlunos();
-
-            return Json(listaAlunos);
         }
 
         private string GetSalutation(int hora)
